@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, TrendingUp, Users, Sparkles } from 'lucide-react';
+import { ExternalLink, TrendingUp, Users, Sparkles, Palette } from 'lucide-react';
 
 const caseStudies = [
   {
@@ -17,6 +17,24 @@ const caseStudies = [
       "Higher customer satisfaction"
     ],
     icon: TrendingUp
+  },
+  {
+    title: "Better Energy GmbH - Homepage Design",
+    location: "Wiesbaden, Germany",
+    url: "figma.com/file/yJSS5XgjVZrn4lqKaspfbW/Better-Energy---Homepage",
+    description: "Complete homepage design system for Better Energy GmbH in Figma, showcasing modern UI/UX design principles.",
+    challenges: [
+      "Creating a cohesive design system",
+      "Balancing aesthetics with functionality",
+      "Ensuring brand consistency"
+    ],
+    solutions: [
+      "Comprehensive Figma design file with all components",
+      "Modern, clean interface that reflects brand values",
+      "Reusable design components for scalability",
+      "User-centric approach to layout and navigation"
+    ],
+    icon: Palette
   },
   {
     title: "Better Energy GmbH",
@@ -99,9 +117,14 @@ const CaseStudies = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-8 rounded-lg group hover:border-primary/50 transition-all duration-300"
+                className="glass-card p-8 rounded-lg group hover:border-primary/50 transition-all duration-300 cursor-pointer hover:shadow-[0_20px_50px_-12px_hsl(var(--primary)/0.25)]"
               >
                 <div className="flex items-start justify-between mb-6">
                   <div>
@@ -109,19 +132,25 @@ const CaseStudies = () => {
                       {study.title}
                     </h3>
                     <p className="text-muted-foreground text-sm mb-2">{study.location}</p>
-                    <a 
+                    <motion.a 
                       href={`https://${study.url}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline text-sm flex items-center gap-1"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
                     >
                       {study.url}
                       <ExternalLink className="w-3 h-3" />
-                    </a>
+                    </motion.a>
                   </div>
-                  <div className="bg-primary/10 p-3 rounded-lg">
+                  <motion.div 
+                    className="bg-primary/10 p-3 rounded-lg"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <Icon className="w-6 h-6 text-primary" />
-                  </div>
+                  </motion.div>
                 </div>
 
                 <p className="text-foreground/80 mb-6">
