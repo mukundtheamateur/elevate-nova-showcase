@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold gradient-text mb-4">ElevateNova</h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Where Ideas Become Digital Experiences. Founded by Shivam Saurabh and Mukund Shukla.
+              Where Ideas Become Digital Experiences. Founded by Shivam Saurabh, Anand Raj and Mukund Shukla.
             </p>
             <div className="flex gap-4">
               <a
